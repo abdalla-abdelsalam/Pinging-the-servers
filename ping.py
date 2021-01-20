@@ -1,5 +1,21 @@
 import csv
+import slack
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+def load_env_variables():
+    env_path=Path('.')/'.env'
+    load_dotenv(dotenv_path=env_path)
+
+
+def slack_connection(servers_status):
+    try:
+        client=slack.WebClient(token=os.environ['SLACK_TOKEN'])
+        client.chat_postMessage(channel='#general',text=servers_status)
+    except:
+        print("your SLACK TOKEN is not valid")
+
 
 def ping_the_servers():
     try:
@@ -35,4 +51,6 @@ def output_file(servers_status):
 if __name__=="__main__":
     servers_status=ping_the_servers()
     output_file(servers_status)
+    load_env_variables()
+    slack_connection(servers_status)
 
