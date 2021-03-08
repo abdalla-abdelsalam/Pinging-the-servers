@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 def load_env_variables():
-    env_path=Path('.')/'.env'
+    env_path=str(Path('.')/'.env')
     load_dotenv(dotenv_path=env_path)
 
 
@@ -37,7 +37,7 @@ def ping_the_servers():
     except FileNotFoundError:
         print("sorry, the ips_list.txt file not found ")
         exit()
-    except Exception as e:
+    except Exception:
         print("sorry, the ips_list.txt file is empty")
         exit()
 
