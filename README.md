@@ -2,7 +2,7 @@
 
 ## Description 
 
-a simple python script for automating the proccess of pinging a cluster of servers.
+script for automating the proccess of pinging a cluster of servers.
 <br>
 the script will take ips-list file that contains the ips and it will send the results to slack ( a messgeing platform ) <br>
 for more info about slack api visit [slack api](https://api.slack.com/).
